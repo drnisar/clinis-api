@@ -15,7 +15,7 @@ const discharge = require("./routes/discharge");
 const uri =
   "mongodb+srv://drnisar:P%4077w673@cluster0.zudejlu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const localhost = "mongodb://localhost:27017/appts";
+// const localhost = "mongodb://localhost:27017/appts";
 mongoose
   .connect(uri)
   .then(() => console.log("Database connected!"))
