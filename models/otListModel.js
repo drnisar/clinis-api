@@ -6,7 +6,7 @@ const otListSchema = new Schema({
     ref: "reg",
   },
   surgDate: Date,
-  otNumber: Number,
+  otNumber: String,
   surgType: String,
   disease: String,
   surgery: String,
