@@ -6,7 +6,7 @@ const cors = require("cors");
 const reg = require("./routes/reg");
 const appt = require("./routes/appt");
 const otList = require("./routes/otList");
-// const cpt = require("./routes/cpt");
+const cpts = require("./routes/cpts");
 const med = require("./routes/meds");
 const surgNotes = require("./routes/surgNotes");
 const drs = require("./routes/drs");
@@ -33,6 +33,7 @@ app.use("/api/med", med);
 app.use("/api/surgnotes", surgNotes);
 app.use("/api/drs", drs);
 app.use("/api/discharge", discharge);
+app.use("/api/cpts", cpts);
 
 // Server
 const port = process.env.PORT || 3000;
