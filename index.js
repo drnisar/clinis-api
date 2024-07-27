@@ -21,6 +21,8 @@ mongoose
   .then(() => console.log("Database connected!"))
   .catch((err) => console.log(err));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || origin.includes("localhost")) {
@@ -30,9 +32,6 @@ const corsOptions = {
     }
   },
 };
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 // Routes
