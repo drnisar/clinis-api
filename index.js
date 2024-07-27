@@ -21,9 +21,19 @@ mongoose
   .then(() => console.log("Database connected!"))
   .catch((err) => console.log(err));
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || origin.includes("localhost")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Routes
 app.use("/api/reg", reg);
