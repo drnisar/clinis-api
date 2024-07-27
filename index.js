@@ -23,22 +23,10 @@ mongoose
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://clinis-client.vercel.app",
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+});
+app.use(cors());
 
 // Routes
 app.use("/api/reg", reg);
